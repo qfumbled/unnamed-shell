@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gresources>
+  <gresource prefix="/">
+    <file alias="bar.ui" preprocess="xml-stripblanks">gtk/bar.ui</file>
+    <file alias="mpris-player.ui" preprocess="xml-stripblanks">gtk/mpris-player.ui</file>
+    <file alias="control-panel.ui" preprocess="xml-stripblanks">gtk/control-panel.ui</file>
+    <file alias="notification.ui" preprocess="xml-stripblanks">gtk/notification.ui</file>
+    <file alias="notification-popups.ui" preprocess="xml-stripblanks">gtk/notification-popups.ui</file>
+    <file alias="launcher-application.ui" preprocess="xml-stripblanks">gtk/launcher-application.ui</file>
+    <file alias="launcher.ui" preprocess="xml-stripblanks">gtk/launcher.ui</file>
+    <file alias="osd-popups.ui" preprocess="xml-stripblanks">gtk/osd-popups.ui</file>
+    <file>style.css</file>
+  </gresource>
+</gresources>
