@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Astal" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="Bar" parent="AstalWindow">
+    <property name="name">bar</property>
+    <property name="margin">24</property>
+    <property name="margin-bottom">0</property>
+    <child>
+      <object class="GtkBox">
+        <property name="spacing">12</property>
+        <property name="hexpand">true</property>
+        <property name="halign">end</property>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">6</property>
+            <child>
+              <object class="GtkImage" id="wifi_icon"/>
+            </child>
+            <child>
+              <object class="GtkImage" id="bluetooth_icon"/>
+            </child>
+            <child>
+              <object class="GtkImage" id="battery_icon"/>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkLabel" id="clock_date"/>
+            </child>
+            <child>
+              <object class="GtkLabel" id="clock_time"/>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>
