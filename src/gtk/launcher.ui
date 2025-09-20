@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Astal" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="Launcher" parent="AstalWindow">
+    <property name="name">launcher</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <style>
+          <class name="card"/>
+        </style>
+        <child>
+          <object class="GtkEntry" id="search_entry">
+            <property name="margin-bottom">12</property>
+            <property name="placeholder-text">Search...</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow">
+            <property name="width-request">200</property>
+            <property name="height-request">350</property>
+            <property name="hscrollbar-policy">never</property>
+            <child>
+              <object class="GtkListBox" id="application_list">
+                <style>
+                  <class name="boxed-list-separate"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Astal" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="ControlPanel" parent="AstalWindow">
+    <property name="name">control-panel</property>
+    <property name="visible">false</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="spacing">12</property>
+        <style>
+          <class name="card"/>
+        </style>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">12</property>
+            <property name="homogeneous">true</property>
+            <child>
+              <object class="GtkToggleButton" id="wifi_toggle_button">
+                <child>
+                  <object class="AdwButtonContent" id="wifi_toggle_button_content">
+                    <property name="halign">start</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton" id="bluetooth_toggle_button">
+                <child>
+                  <object class="AdwButtonContent" id="bluetooth_toggle_button_content">
+                    <property name="halign">start</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">12</property>
+            <property name="homogeneous">true</property>
+            <child>
+              <object class="GtkToggleButton">
+                <property name="sensitive">false</property>
+                <child>
+                  <object class="AdwButtonContent">
+                    <property name="halign">start</property>
+                    <property name="label">N/A</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkToggleButton">
+                <property name="sensitive">false</property>
+                <child>
+                  <object class="AdwButtonContent">
+                    <property name="halign">start</property>
+                    <property name="label">N/A</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="spacing">8</property>
+            <style>
+              <class name="card"/>
+            </style>
+            <child>
+              <object class="GtkLabel">
+                <property name="halign">start</property>
+                <property name="label">Volume</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="spacing">8</property>
+                <child>
+                  <object class="GtkImage" id="volume_control_icon"/>
+                </child>
+                <child>
+                  <object class="GtkScale">
+                    <property name="hexpand">true</property>
+                    <property name="adjustment">
+                      <object class="GtkAdjustment" id="volume_control_slider_adjustment">
+                        <property name="lower">0.0</property>
+                        <property name="upper">1.0</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="spacing">8</property>
+            <style>
+              <class name="card"/>
+            </style>
+            <child>
+              <object class="GtkLabel">
+                <property name="halign">start</property>
+                <property name="label">Brightness</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="spacing">8</property>
+                <child>
+                  <object class="GtkImage" id="brightness_control_icon"/>
+                </child>
+                <child>
+                  <object class="GtkScale">
+                    <property name="hexpand">true</property>
+                    <property name="adjustment">
+                      <object class="GtkAdjustment" id="brightness_control_slider_adjustment">
+                        <property name="lower">0.0</property>
+                        <property name="upper">1.0</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox" id="music_players_carousel_container">
+            <child>
+              <object class="AdwCarousel" id="music_players_carousel">
+                <property name="spacing">12</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

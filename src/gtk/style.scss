@@ -1,0 +1,107 @@
+// TODO: seriously improve this css
+
+:root {
+  --window_fg_color: @window_fg_color;
+  --window_bg_color: mix(@window_bg_color, currentColor, 0.08);
+
+  --accent_color: @accent_color;
+  --accent_fg_color: @accent_fg_color;
+  --accent_bg_color: @accent_bg_color;
+}
+
+$window_fg_color: var(--window_fg_color);
+$window_bg_color: var(--window_bg_color);
+
+$accent_fg_color: var(--accent_fg_color);
+$accent_bg_color: var(--accent_bg_color);
+
+$notification_size: 250px;
+$notification_image_size: 50px;
+
+window {
+  background: none;
+}
+
+box.card {
+  padding: 10px;
+
+  > box.card {
+    box-shadow: none;
+  }
+}
+
+box.pill {
+  padding: 10px;
+  border-radius: 999px;
+}
+
+window#control-panel > box {
+  background-color: $window_bg_color;
+  margin: 10px;
+
+  button.toggle {
+    &:checked {
+      color: $accent_fg_color;
+      background-color: $accent_bg_color;
+    }
+  }
+
+  scale {
+    padding: 0;
+
+    > trough {
+      //padding: 0 5px;
+      min-width: 250px;
+
+      > highlight {
+        background-color: color-mix(in srgb, currentColor 30%, transparent);
+        margin: 0 -10px;
+        min-height: 20px;
+      }
+
+      > slider {
+        min-width: 20px;
+        min-height: 20px;
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+window#notification-popups > box {
+  &:first-child {
+    margin-top: 10px;
+  }
+
+  box#notification {
+    background-color: $window_bg_color;
+    min-width: $notification_size + $notification_image_size;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    image {
+      min-width: $notification_image_size;
+      min-height: $notification_image_size;
+    }
+  }
+}
+
+window#launcher > box {
+  background-color: $window_bg_color;
+  margin: 10px;
+
+  entry {
+    outline-color: color-mix(in srgb, var(--accent_color) 50%, transparent);
+  }
+
+  list > row {
+    padding: 10px;
+    box-shadow: none;
+
+    &:selected {
+      background-color: color-mix(in srgb, currentColor 19%, transparent);
+      outline-color: color-mix(in srgb, var(--accent_color) 50%, transparent);
+    }
+  }
+}

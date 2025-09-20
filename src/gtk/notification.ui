@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Astal" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="Notification" parent="GtkBox">
+    <property name="name">notification</property>
+    <style>
+      <class name="card"/>
+    </style>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="spacing">6</property>
+        <child>
+          <object class="GtkBox">
+            <property name="spacing">6</property>
+            <child>
+              <object class="GtkImage" id="image">
+                <property name="visible">false</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkLabel" id="title">
+                    <property name="xalign">0</property>
+                    <property name="ellipsize">end</property>
+                    <property name="width-chars">36</property>
+                    <property name="max-width-chars">36</property>
+                    <attributes>
+                      <attribute name="weight" value="PANGO_WEIGHT_BOLD"/>
+                    </attributes>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="body">
+                    <property name="use-markup">true</property>
+                    <property name="xalign">0</property>
+                    <property name="wrap">true</property>
+                    <property name="wrap-mode">word-char</property>
+                    <property name="lines">5</property>
+                    <property name="ellipsize">end</property>
+                    <property name="max-width-chars">36</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox" id="actions">
+            <property name="spacing">6</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

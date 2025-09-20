@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Astal" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="NotificationPopups" parent="AstalWindow">
+    <property name="name">notification-popups</property>
+    <child>
+      <object class="GtkBox" id="notification_list">
+        <property name="orientation">vertical</property>
+        <property name="valign">start</property>
+      </object>
+    </child>
+  </template>
+</interface>

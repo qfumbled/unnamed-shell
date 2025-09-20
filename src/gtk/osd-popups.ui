@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Astal" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="OsdPopups" parent="AstalWindow">
+    <property name="name">osd-popups</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="valign">end</property>
+        <child>
+          <object class="GtkRevealer" id="volume_osd_revealer">
+            <property name="reveal-child">false</property>
+            <property name="transition-type">slide-up</property>
+            <property name="transition-duration">125</property>
+            <child>
+              <object class="GtkBox" id="volume_osd">
+                <property name="spacing">6</property>
+                <property name="margin-bottom">6</property>
+                <child>
+                  <object class="GtkImage" id="volume_osd_icon"/>
+                </child>
+                <child>
+                  <object class="GtkProgressBar" id="volume_osd_progress_bar">
+                    <property name="valign">center</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkRevealer" id="brightness_osd_revealer">
+            <property name="reveal-child">false</property>
+            <property name="transition-type">slide-up</property>
+            <property name="transition-duration">125</property>
+            <child>
+              <object class="GtkBox" id="brightness_osd">
+                <property name="spacing">6</property>
+                <property name="margin-bottom">6</property>
+                <child>
+                  <object class="GtkImage" id="brightness_osd_icon"/>
+                </child>
+                <child>
+                  <object class="GtkProgressBar" id="brightness_osd_progress_bar">
+                    <property name="valign">center</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>
