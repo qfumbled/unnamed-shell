@@ -1,0 +1,67 @@
+diff --git a/player.vala b/player.vala
+index 2050f61..4dd7446 100644
+--- a/player.vala
++++ b/player.vala
+@@ -364,12 +364,12 @@ public class AstalMpris.Player : Object {
+     /**
+      * Artists of the currently playing album.
+      */
+-    public string album_artist { owned get; private set; }
++    public string[] album_artists { owned get; private set; }
+
+     /**
+      * Artists of the currently playing track.
+      */
+-    public string artist { owned get; private set; }
++    public string[] artists { owned get; private set; }
+
+     /**
+      * Lyrics of the currently playing track.
+@@ -384,12 +384,12 @@ public class AstalMpris.Player : Object {
+     /**
+      * Composers of the currently playing track.
+      */
+-    public string composer { owned get; private set; }
++    public string[] composers { owned get; private set; }
+
+     /**
+      * Comments of the currently playing track.
+      */
+-    public string comments { owned get; private set; }
++    public string[] comments { owned get; private set; }
+
+     /**
+      * Path of the cached [property@AstalMpris.Player:art_url].
+@@ -488,10 +488,10 @@ public class AstalMpris.Player : Object {
+             album = get_str("xesam:album");
+             lyrics = get_str("xesam:asText");
+             title = get_str("xesam:title");
+-            album_artist = join_strv("xesam:albumArtist", ", ");
+-            artist = join_strv("xesam:artist", ", ");
+-            comments = join_strv("xesam:comments", "\n");
+-            composer = join_strv("xesam:composer", ", ");
++            album_artists = get_strv("xesam:albumArtist");
++            artists = get_strv("xesam:artist");
++            comments = get_strv("xesam:comments");
++            composers = get_strv("xesam:composer");
+             cache_cover.begin((_, res) => cache_cover.end(res));
+             notify_property("metadata");
+         }
+@@ -545,6 +545,17 @@ public class AstalMpris.Player : Object {
+         return str == null ? "" : str;
+     }
+
++    private string[]? get_strv(string key) {
++        if (metadata.get(key) == null)
++            return null;
++
++        var strv = metadata.get(key).get_strv();
++        if (strv.length == 0)
++            return null;
++
++        return strv;
++    }
++
+     private string? join_strv(string key, string sep) {
+         if (metadata.get(key) == null)
+             return null;
